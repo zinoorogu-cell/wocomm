@@ -1,739 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WOCOM World | Word Communication Ministries UK</title>
-<meta name="description" content="WOCOM World — Word Communication Ministries UK. A refined landing page concept rooted in Christ, reaching the nations.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --gold:#C9A84C;
-  --gold-light:#E8C96A;
-  --gold-dark:#8B6914;
-  --navy:#0B1524;
-  --navy-mid:#12203A;
-  --navy-soft:#203250;
-  --cream:#FDF8EE;
-  --cream-mid:#F6F1E6;
-  --white:#FFFFFF;
-  --text:#223047;
-  --text-soft:#657089;
-  --line:#E7E2D7;
-  --shadow:0 20px 60px rgba(11,21,36,.14);
-  --radius:24px;
-  --radius-sm:16px;
-  --font-serif:'Cormorant Garamond', serif;
-  --font-sans:'Outfit', sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:var(--font-sans);
-  color:var(--text);
-  background:linear-gradient(180deg,#fff 0%,#fff 55%,#fbfaf7 100%);
-  overflow-x:hidden;
-}
-a{color:inherit}
-img{max-width:100%;display:block}
-section{padding:92px min(6vw,88px)}
-.container{max-width:1240px;margin:0 auto}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--gold-dark);
-}
-.eyebrow::before{
-  content:"";width:32px;height:1px;background:var(--gold);
-}
-.section-head{max-width:720px;margin-bottom:30px}
-.section-title{
-  font-family:var(--font-serif);
-  font-size:clamp(38px,5vw,64px);
-  line-height:.98;
-  color:var(--navy);
-  margin:18px 0 14px;
-}
-.section-title em{font-style:italic;color:var(--gold)}
-.section-sub{font-size:17px;line-height:1.8;color:var(--text-soft)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  text-decoration:none;border-radius:999px;padding:15px 26px;
-  font-weight:600;font-size:14px;transition:.25s ease;border:1px solid transparent;
-}
-.btn-primary{background:var(--gold);color:var(--navy);box-shadow:0 14px 32px rgba(201,168,76,.28)}
-.btn-primary:hover{transform:translateY(-2px);background:var(--gold-light)}
-.btn-secondary{background:rgba(255,255,255,.88);color:var(--navy);border-color:rgba(255,255,255,.45)}
-.btn-secondary:hover{background:#fff;transform:translateY(-2px)}
-.btn-outline{border-color:rgba(11,21,36,.15);color:var(--navy);background:#fff}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold-dark);transform:translateY(-2px)}
-.glass{
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.7);
-  box-shadow:var(--shadow);
-}
-/* Header */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  padding:18px min(4vw,48px);
-}
-.navbar{
-  max-width:1280px;margin:0 auto;border-radius:999px;padding:14px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
-.brand-mark{
-  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--navy),var(--navy-soft));
-  color:var(--gold);font-family:var(--font-serif);font-size:18px;font-weight:700;
-  border:1.5px solid rgba(201,168,76,.45);box-shadow:inset 0 0 0 3px rgba(255,255,255,.06);
-}
-.brand-copy{min-width:0}
-.brand-copy strong{display:block;font-family:var(--font-serif);font-size:21px;color:var(--navy);line-height:1}
-.brand-copy span{display:block;margin-top:3px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nav-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.nav-links a{
-  text-decoration:none;color:var(--navy);font-size:14px;font-weight:500;
-  padding:10px 14px;border-radius:999px;transition:.25s ease;
-}
-.nav-links a:hover{background:rgba(201,168,76,.12);color:var(--gold-dark)}
-.nav-cta{margin-left:8px}
-.nav-toggle{display:none;background:none;border:none;color:var(--navy);font-size:28px;cursor:pointer}
-/* Hero */
-.hero{
-  position:relative;padding:140px min(5vw,72px) 72px;
-}
-.hero-shell{max-width:1320px;margin:0 auto;position:relative}
-.hero-stage{
-  min-height:780px;border-radius:34px;overflow:hidden;position:relative;background:var(--navy);
-  box-shadow:0 32px 100px rgba(11,21,36,.28);
-}
-.hero-slide{
-  position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .9s ease;
-}
-.hero-slide.active{opacity:1;pointer-events:auto}
-.hero-media,
-.hero-media::before,
-.hero-media::after{position:absolute;inset:0}
-.hero-media{background-size:cover;background-position:center}
-.hero-media::before{content:"";background:linear-gradient(90deg,rgba(11,21,36,.86) 0%,rgba(11,21,36,.55) 45%,rgba(11,21,36,.18) 100%)}
-.hero-media::after{content:"";background:linear-gradient(180deg,rgba(11,21,36,.12) 0%,rgba(11,21,36,.1) 36%,rgba(11,21,36,.7) 100%)}
-.hero-grid{
-  position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:38px;
-  min-height:780px;align-items:end;padding:58px;
-}
-.hero-copy{max-width:690px;color:#fff;padding-top:72px}
-.hero-title{
-  font-family:var(--font-serif);font-size:clamp(52px,7.2vw,90px);line-height:.95;
-  margin:20px 0 20px;
-}
-.hero-title em{color:var(--gold);font-style:italic}
-.hero-text{font-size:18px;line-height:1.9;color:rgba(255,255,255,.84);max-width:590px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.hero-side{
-  justify-self:end;align-self:end;width:min(390px,100%);
-  padding:26px;border-radius:28px;color:var(--navy);
-}
-.live-pill{
-  display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.16);
-  color:var(--gold-dark);padding:7px 12px;border-radius:999px;font-size:11px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;
-}
-.live-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#da4f48;box-shadow:0 0 0 7px rgba(218,79,72,.14)}
-.hero-side h3{font-size:28px;font-family:var(--font-serif);color:var(--navy);margin-bottom:10px}
-.hero-side p{color:var(--text-soft);line-height:1.75;margin-bottom:18px}
-.meta-list{display:grid;gap:12px;margin-top:18px}
-.meta-item{
-  display:flex;align-items:flex-start;gap:12px;padding:14px 14px;border-radius:18px;background:#fff;border:1px solid rgba(11,21,36,.06);
-}
-.meta-item strong{display:block;font-size:14px;color:var(--navy)}
-.meta-item span{display:block;font-size:13px;color:var(--text-soft);margin-top:3px}
-.hero-controls{
-  position:absolute;left:58px;right:58px;bottom:34px;z-index:4;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
-.hero-dots{display:flex;gap:10px;align-items:center}
-.hero-dot{
-  width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;transition:.25s ease;
-}
-.hero-dot.active{width:40px;border-radius:999px;background:var(--gold)}
-.arrow-group{display:flex;gap:10px}
-.arrow-btn{
-  width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.24);
-  background:rgba(255,255,255,.12);color:#fff;cursor:pointer;font-size:18px;transition:.25s ease;
-}
-.arrow-btn:hover{background:rgba(255,255,255,.2);transform:translateY(-1px)}
-.hero-strip{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-52px;position:relative;z-index:5;
-}
-.strip-card{padding:22px 24px;border-radius:24px}
-.strip-card strong{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px}
-.strip-card span{display:block;font-size:16px;line-height:1.7;color:var(--text-soft)}
-/* About */
-.about-wrap{display:grid;grid-template-columns:1.03fr .97fr;gap:42px;align-items:center}
-.about-card{
-  border-radius:32px;overflow:hidden;box-shadow:var(--shadow);background:#fff;border:1px solid rgba(11,21,36,.07)
-}
-.about-visual{position:relative;min-height:620px;background:#ddd}
-.about-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.about-badge{
-  position:absolute;left:30px;bottom:28px;padding:18px 22px;border-radius:24px;max-width:240px;color:var(--navy)
-}
-.about-badge strong{display:block;font-family:var(--font-serif);font-size:42px;line-height:1;color:var(--navy)}
-.about-badge span{display:block;margin-top:8px;font-size:14px;color:var(--text-soft);line-height:1.6}
-.about-content .quote{
-  margin:24px 0 28px;padding:24px;border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,168,76,.08),rgba(201,168,76,.02));
-  border-radius:0 18px 18px 0;font-family:var(--font-serif);font-size:29px;line-height:1.15;color:var(--navy)
-}
-.pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
-.pillar{
-  background:#fff;border:1px solid rgba(11,21,36,.08);border-radius:22px;padding:22px;box-shadow:0 14px 40px rgba(17,32,58,.06)
-}
-.pillar h4{font-size:18px;color:var(--navy);margin-bottom:8px}
-.pillar p{font-size:15px;line-height:1.75;color:var(--text-soft)}
-/* Services */
-.services{background:linear-gradient(180deg,var(--cream-mid),#fff)}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:28px}
-.service-card{
-  background:#fff;border-radius:26px;padding:28px;border:1px solid rgba(11,21,36,.06);box-shadow:0 18px 50px rgba(11,21,36,.08)
-}
-.service-icon{
-  width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:24px;
-  background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(201,168,76,.08));margin-bottom:18px
-}
-.service-card h3{font-size:22px;font-family:var(--font-serif);color:var(--navy);margin-bottom:10px}
-.service-card p{font-size:15px;line-height:1.75;color:var(--text-soft)}
-.service-time{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-weight:600;color:var(--navy)}
-/* Media gallery */
-.media-showcase{padding-top:28px}
-.media-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
-.media-tags{display:flex;gap:10px;flex-wrap:wrap}
-.media-tags span{
-  padding:10px 14px;border-radius:999px;background:#fff;border:1px solid rgba(11,21,36,.08);font-size:13px;color:var(--text-soft)
-}
-.gallery-grid{
-  display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-auto-rows:220px;gap:18px;
-}
-.gallery-card{
-  position:relative;overflow:hidden;border-radius:28px;min-height:220px;background:var(--navy);box-shadow:var(--shadow)
-}
-.gallery-card.tall{grid-row:span 2}
-.gallery-card.wide{grid-column:span 2}
-.gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
-.gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,21,36,.05),rgba(11,21,36,.78))}
-.gallery-card:hover img{transform:scale(1.05)}
-.gallery-copy{
-  position:absolute;left:22px;right:22px;bottom:20px;z-index:2;color:#fff
-}
-.gallery-copy .tag{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
-.gallery-copy h3{font-family:var(--font-serif);font-size:30px;line-height:1;margin-bottom:8px}
-.gallery-copy p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.82)}
-/* Impact ribbon */
-.impact{background:var(--navy);padding:40px min(6vw,88px)}
-.impact-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.impact-card{padding:26px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#fff}
-.impact-card strong{display:block;font-family:var(--font-serif);font-size:44px;color:var(--gold);line-height:1;margin-bottom:8px}
-.impact-card span{font-size:15px;line-height:1.7;color:rgba(255,255,255,.72)}
-/* Branches */
-.branches{background:linear-gradient(180deg,#fff 0%,#f8f5ee 100%)}
-.branch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
-.branch-card{
-  background:#fff;border-radius:26px;padding:28px;border:1px solid rgba(11,21,36,.07);box-shadow:0 18px 50px rgba(11,21,36,.08)
-}
-.branch-flag{font-size:28px;margin-bottom:14px}
-.branch-card h3{font-family:var(--font-serif);font-size:28px;color:var(--navy);margin-bottom:10px;line-height:1.03}
-.branch-card small{font-size:13px;color:var(--gold-dark);font-weight:600}
-.branch-card p{color:var(--text-soft);line-height:1.75;margin-bottom:6px}
-.branch-card a{display:inline-block;margin-top:8px;text-decoration:none;color:var(--navy);font-weight:600;word-break:break-word}
-.branch-card a:hover{color:var(--gold-dark)}
-/* Connect */
-.connect{background:var(--navy);color:#fff}
-.connect-wrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.04fr .96fr;gap:28px;align-items:stretch}
-.connect .section-title{color:#fff}
-.connect .section-sub{color:rgba(255,255,255,.74)}
-.contact-panel{padding:32px;border-radius:30px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
-.contact-list{display:grid;gap:16px;margin-top:24px}
-.contact-item{padding:18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
-.contact-item strong{display:block;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
-.contact-item a,.contact-item span{font-size:16px;color:#fff;text-decoration:none;line-height:1.7}
-.connect-card{padding:34px;border-radius:30px;color:var(--navy)}
-.connect-card h3{font-family:var(--font-serif);font-size:40px;line-height:1;margin-bottom:12px}
-.connect-card p{line-height:1.8;color:var(--text-soft)}
-.quick-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
-.quick-actions a{
-  text-decoration:none;background:#fff;border:1px solid rgba(11,21,36,.08);border-radius:20px;padding:18px 18px 16px;transition:.25s ease
-}
-.quick-actions a:hover{transform:translateY(-2px);box-shadow:0 18px 35px rgba(11,21,36,.08)}
-.quick-actions strong{display:block;color:var(--navy);margin-bottom:7px}
-.quick-actions span{font-size:14px;line-height:1.7;color:var(--text-soft)}
-/* Footer */
-footer{padding:26px min(6vw,88px) 42px;background:var(--navy)}
-.footer-shell{
-  max-width:1240px;margin:0 auto;padding-top:26px;border-top:1px solid rgba(255,255,255,.1);
-  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:rgba(255,255,255,.72)
-}
-.footer-shell strong{color:#fff;font-family:var(--font-serif);font-size:24px}
-.footer-links{display:flex;gap:16px;flex-wrap:wrap}
-.footer-links a{text-decoration:none;color:rgba(255,255,255,.72)}
-.footer-links a:hover{color:var(--gold)}
-/* Responsive */
-@media (max-width:1100px){
-  .hero-grid,.about-wrap,.connect-wrap{grid-template-columns:1fr}
-  .hero-side{justify-self:start}
-  .hero-stage,.hero-grid{min-height:auto}
-  .hero-grid{padding:40px 26px 110px}
-  .hero-copy{padding-top:40px}
-  .hero-controls{left:26px;right:26px;bottom:22px}
-  .hero-strip,.services-grid,.impact-grid,.branch-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-grid{grid-template-columns:1fr 1fr}
-  .gallery-card.wide{grid-column:span 2}
-}
-@media (max-width:840px){
-  header{padding:14px 14px 0}
-  .navbar{border-radius:28px;align-items:flex-start}
-  .nav-toggle{display:block;margin-left:auto}
-  .nav-links{
-    display:none;position:absolute;top:74px;left:14px;right:14px;flex-direction:column;align-items:stretch;
-    background:rgba(255,255,255,.98);padding:14px;border-radius:24px;box-shadow:var(--shadow)
-  }
-  .nav-links.open{display:flex}
-  .nav-links a,.nav-cta{width:100%;text-align:left}
-  .nav-cta{margin-left:0}
-  .hero{padding-top:118px}
-  .hero-title{font-size:clamp(44px,12vw,72px)}
-  .hero-actions{flex-direction:column;align-items:flex-start}
-  .pillars,.quick-actions{grid-template-columns:1fr}
-}
-@media (max-width:680px){
-  section{padding:76px 20px}
-  .hero{padding-left:14px;padding-right:14px;padding-bottom:30px}
-  .hero-stage{border-radius:28px}
-  .hero-grid{padding:30px 18px 106px}
-  .hero-side{padding:20px;border-radius:22px}
-  .hero-strip,.services-grid,.impact-grid,.branch-grid,.gallery-grid{grid-template-columns:1fr}
-  .gallery-card.wide{grid-column:span 1}
-  .gallery-card.tall{grid-row:span 1}
-  .gallery-grid{grid-auto-rows:260px}
-  .media-top{flex-direction:column;align-items:flex-start}
-  .about-visual{min-height:460px}
-  .about-badge{left:18px;right:18px;max-width:none}
-  .footer-shell{flex-direction:column}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOCOM World | Word Communication Ministries UK</title>
+  <meta name="description" content="WOCOM World — a mobile-responsive church website for worship, giving, events, prayer, media, and global ministry connection.">
+  <meta name="theme-color" content="#0B1524">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="navbar glass">
-    <a class="brand" href="#top" aria-label="WOCOM World home">
-      <div class="brand-mark">WW</div>
-      <div class="brand-copy">
-        <strong>WOCOM World</strong>
-        <span>Word Communication Ministries</span>
+  <div class="site-shell">
+    <header class="site-header" id="top">
+      <div class="container nav-wrap glass">
+        <a class="brand" href="#top" aria-label="WOCOM World Home">
+          <img class="brand-logo" src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/WOCOM/WOCOM_Logo4.png" alt="WOCOM World logo">
+          <span class="brand-text">
+            <strong>WOCOM World</strong>
+            <small>Word Communication Ministries UK</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="siteNav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#ministries">Ministries</a>
+          <a href="#giving">Giving</a>
+          <a href="#events">Events</a>
+          <a href="#media">Media</a>
+          <a href="#prayer">Prayer</a>
+          <a href="#contact">Contact</a>
+          <a class="btn btn-primary nav-btn" href="#visit">Plan a Visit</a>
+        </nav>
       </div>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#media">Media</a>
-      <a href="#branches">Branches</a>
-      <a href="#connect">Contact</a>
-      <a class="btn btn-primary nav-cta" href="#connect">Plan a Visit</a>
-    </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-slider" id="heroSlider">
+          <article class="hero-slide is-active">
+            <div class="hero-bg" style="background-image:url('https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/New%20Slides/Design_1.jpeg');"></div>
+            <div class="container hero-grid">
+              <div class="hero-copy">
+                <span class="eyebrow">Rooted in Christ • Reaching the Nations</span>
+                <h1>A beautiful worship-centred website for a <em>global ministry family</em></h1>
+                <p>Welcome to WOCOM World — a refined, mobile-responsive church platform designed to help people worship, connect, give, watch live services, explore ministries, and grow in the Word.</p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="#visit">Join Us This Sunday</a>
+                  <a class="btn btn-light" href="#media">Watch Messages</a>
+                </div>
+                <div class="hero-stat-row">
+                  <div><strong>Global</strong><span>UK, Nigeria & international branches</span></div>
+                  <div><strong>Live</strong><span>Worship, teaching, prayer & broadcasts</span></div>
+                  <div><strong>Connected</strong><span>Giving, forms, events & discipleship</span></div>
+                </div>
+              </div>
+              <aside class="hero-card glass-dark">
+                <span class="pill-live">Live this week</span>
+                <h2>Sunday Celebration Service</h2>
+                <p>Experience powerful worship, apostolic teaching, prayer, and community in a spirit-filled atmosphere.</p>
+                <ul>
+                  <li><strong>UK Time</strong><span>Sunday • 10:00 AM BST</span></li>
+                  <li><strong>Nigeria Time</strong><span>Sunday • 11:00 AM WAT</span></li>
+                  <li><strong>Online</strong><span>Livestream, media replay, and sermon library</span></li>
+                </ul>
+              </aside>
+            </div>
+          </article>
+
+          <article class="hero-slide">
+            <div class="hero-bg" style="background-image:url('https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/New%20Slides/Design_1_5_.jpeg');"></div>
+            <div class="container hero-grid">
+              <div class="hero-copy">
+                <span class="eyebrow">Worship • Prayer • Revival</span>
+                <h2>Celebrate the presence of God through <em>worship and prayer</em></h2>
+                <p>The homepage hero rotates through vibrant ministry imagery, clear calls to action, and inspiring messages that welcome first-time visitors on every device.</p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="#prayer">Submit Prayer Request</a>
+                  <a class="btn btn-light" href="#events">See Upcoming Events</a>
+                </div>
+              </div>
+              <aside class="hero-card glass-dark">
+                <span class="pill-live">Prayer focus</span>
+                <h2>Prayer Wall & pastoral care</h2>
+                <p>Private and public requests, follow-up care, and an intercessory pathway help every visitor feel seen and supported.</p>
+                <ul>
+                  <li><strong>Public Wall</strong><span>Moderated testimonies and prayer support</span></li>
+                  <li><strong>Private Care</strong><span>Confidential requests routed to the team</span></li>
+                  <li><strong>Community</strong><span>People can respond with “I’m praying”</span></li>
+                </ul>
+              </aside>
+            </div>
+          </article>
+
+          <article class="hero-slide">
+            <div class="hero-bg" style="background-image:url('https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/New%20Slides/Design_1_18_.jpeg');"></div>
+            <div class="container hero-grid">
+              <div class="hero-copy">
+                <span class="eyebrow">Media • Sermons • Livestream</span>
+                <h2>Share every testimony, teaching, and conference through a <em>rich media experience</em></h2>
+                <p>From video galleries and sermon archives to livestream embeds and TV schedules, the site gives WOCOM World a modern digital ministry hub.</p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="#media">Explore Media</a>
+                  <a class="btn btn-light" href="#giving">Give Online</a>
+                </div>
+              </div>
+              <aside class="hero-card glass-dark">
+                <span class="pill-live">Digital ministry</span>
+                <h2>Built for growth</h2>
+                <p>Interactive events, donation options, ministry pages, and newsletter signup open new channels for connection and discipleship.</p>
+                <ul>
+                  <li><strong>Giving</strong><span>Stripe, PayPal, recurring support, Gift Aid</span></li>
+                  <li><strong>Events</strong><span>Calendar, RSVP, reminders, branch-specific listings</span></li>
+                  <li><strong>CRM-ready</strong><span>Visitor, salvation, volunteer, and prayer capture</span></li>
+                </ul>
+              </aside>
+            </div>
+          </article>
+
+          <article class="hero-slide">
+            <div class="hero-bg" style="background-image:url('https://sspark.genspark.ai/cfimages?u1=qAA43nh5Nlrsam6R89iy9e2BN0Cxwbuon0prnc193zQnYuDQC6m1JY1%2BIas8cDRmlljL17OuYRL5gsZIxhc%2B%2Ff7j0d6oBckAC8ZQcrFmpkqAmYTRcg%3D%3D&u2=KISa9y9DKVS62Qbv&width=2560');"></div>
+            <div class="container hero-grid">
+              <div class="hero-copy">
+                <span class="eyebrow">Youth • Discipleship • Next Generation</span>
+                <h2>Make room for every generation to <em>belong, grow, and serve</em></h2>
+                <p>Dedicated ministry hubs for youth, men, women, community outreach, and training create a clearer journey through the life of the church.</p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="#ministries">Explore Ministries</a>
+                  <a class="btn btn-light" href="#newsletter">Join Newsletter</a>
+                </div>
+              </div>
+              <aside class="hero-card glass-dark">
+                <span class="pill-live">Ministry hubs</span>
+                <h2>Structured for connection</h2>
+                <p>Each ministry area can have its own overview, gallery, events, contacts, and resources without overwhelming the homepage.</p>
+                <ul>
+                  <li><strong>ROOTS</strong><span>Youth & young adults</span></li>
+                  <li><strong>Kingdom Life</strong><span>Men’s fellowship</span></li>
+                  <li><strong>CALM</strong><span>Community & lifestyle ministry</span></li>
+                </ul>
+              </aside>
+            </div>
+          </article>
+
+          <div class="hero-controls container">
+            <button class="slider-arrow" id="prevSlide" aria-label="Previous slide">&#8592;</button>
+            <div class="hero-dots" id="heroDots"></div>
+            <button class="slider-arrow" id="nextSlide" aria-label="Next slide">&#8594;</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-band">
+        <div class="container intro-grid">
+          <article class="intro-card glass-light">
+            <strong>Mobile First</strong>
+            <p>Designed to feel polished, readable, and fast on phones, tablets, laptops, and large screens.</p>
+          </article>
+          <article class="intro-card glass-light">
+            <strong>Kingdom Growth</strong>
+            <p>Supports digital evangelism, giving, discipleship, prayer care, and branch visibility.</p>
+          </article>
+          <article class="intro-card glass-light">
+            <strong>Beautiful Imagery</strong>
+            <p>Retains WOCOM visuals while adding worship-led storytelling through a premium slider and gallery.</p>
+          </article>
+          <article class="intro-card glass-light">
+            <strong>Action Focused</strong>
+            <p>Visitors can quickly plan a visit, request prayer, register for events, give, or watch online.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container split-layout about-layout">
+          <div class="image-panel">
+            <img src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/WOCOM/Home%20Page/3_6_.jpg" alt="WOCOM World worship gathering">
+            <div class="floating-badge glass-light">
+              <strong>30+</strong>
+              <span>Years of ministry influence expressed through a refreshed digital presence.</span>
+            </div>
+          </div>
+          <div class="content-panel">
+            <span class="eyebrow">About WOCOM World</span>
+            <h2 class="section-title">A complete church website built for <em>worship, discipleship, and connection</em></h2>
+            <p class="section-text">This redesign keeps the ministry’s voice, colours, and imagery while reshaping the website into a modern, responsive platform that feels warm, elegant, and easier to use on mobile. It introduces stronger storytelling, clearer pathways, and more space for worship, media, outreach, and church life.</p>
+            <blockquote>“Proclaiming the Gospel with signs following — to every nation, every tongue, every generation.”</blockquote>
+            <div class="feature-grid mini-grid">
+              <article class="feature-box">
+                <h3>The Word</h3>
+                <p>Clear teaching pathways, sermon access, and Bible-centred messaging.</p>
+              </article>
+              <article class="feature-box">
+                <h3>The Spirit</h3>
+                <p>Worship, prayer, revival, and testimony moments highlighted with imagery.</p>
+              </article>
+              <article class="feature-box">
+                <h3>The Mission</h3>
+                <p>Events, branch outreach, and global impact made visible at a glance.</p>
+              </article>
+              <article class="feature-box">
+                <h3>The Family</h3>
+                <p>Ministry hubs and forms make it easier for newcomers to belong.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-section" id="services">
+        <div class="container">
+          <div class="section-heading center-heading">
+            <span class="eyebrow">Gather with us</span>
+            <h2 class="section-title">Weekly services in a <em>clean, mobile-friendly layout</em></h2>
+            <p class="section-text narrow-text">Each service is presented as a scannable card so first-time visitors can immediately understand when to attend and what to expect.</p>
+          </div>
+          <div class="card-grid four-grid">
+            <article class="info-card">
+              <span class="icon-box">⛪</span>
+              <h3>Sunday Celebration</h3>
+              <p>Spirit-filled worship, apostolic teaching, prayer, and community.</p>
+              <strong>Sundays • 10:00 AM BST / 11:00 AM WAT</strong>
+            </article>
+            <article class="info-card">
+              <span class="icon-box">📖</span>
+              <h3>Bible Study & Prayer</h3>
+              <p>Midweek discipleship, scripture teaching, and intercession.</p>
+              <strong>Wednesdays • 7:00 PM BST</strong>
+            </article>
+            <article class="info-card">
+              <span class="icon-box">🔥</span>
+              <h3>Night of Fire</h3>
+              <p>Monthly revival-focused prayer and worship encounter.</p>
+              <strong>Last Friday • 10:00 PM – 4:00 AM</strong>
+            </article>
+            <article class="info-card">
+              <span class="icon-box">👨‍👩‍👧‍👦</span>
+              <h3>Children’s Church</h3>
+              <p>A dedicated space for children to learn and grow during service.</p>
+              <strong>Every Sunday during main service</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ministries">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Ministry hubs</span>
+            <h2 class="section-title">Dedicated ministry pages for <em>every audience in the church</em></h2>
+            <p class="section-text">The site structure supports ministry-specific pages with custom introductions, event listings, leaders, resources, media, and contact pathways.</p>
+          </div>
+          <div class="card-grid five-grid">
+            <article class="ministry-card accent-one"><h3>ROOTS</h3><p>Youth & Young Adults ministry with vibrant next-generation worship, discipleship, and community.</p></article>
+            <article class="ministry-card accent-two"><h3>Kingdom Life</h3><p>Men’s fellowship focused on leadership, purpose, prayer, and spiritual maturity.</p></article>
+            <article class="ministry-card accent-three"><h3>CALM</h3><p>Community & Lifestyle Ministry with outreach, care, and practical connection points.</p></article>
+            <article class="ministry-card accent-four"><h3>Women’s Programme</h3><p>Faith, empowerment, prayer, leadership development, and supportive sisterhood.</p></article>
+            <article class="ministry-card accent-five"><h3>International College</h3><p>Academic and theological training hub with resources, events, and registration pathways.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-section" id="giving">
+        <div class="container split-layout">
+          <div class="content-panel">
+            <span class="eyebrow">Online Giving</span>
+            <h2 class="section-title">Secure giving with <em>Stripe, PayPal, recurring support, and Gift Aid</em></h2>
+            <p class="section-text">This website structure includes a polished giving section where members and supporters can give toward tithes, seed offerings, missions, or special projects from anywhere in the world.</p>
+            <div class="list-grid">
+              <div><strong>Stripe + PayPal</strong><span>Fast, secure global giving by card or wallet.</span></div>
+              <div><strong>UK Gift Aid</strong><span>Eligible UK donors can increase their giving value.</span></div>
+              <div><strong>Recurring Donations</strong><span>Weekly, monthly, or annual support options.</span></div>
+              <div><strong>Giving History</strong><span>Email receipts and contribution tracking readiness.</span></div>
+            </div>
+          </div>
+          <div class="form-panel giving-panel">
+            <h3>Give to WOCOM World</h3>
+            <form class="styled-form">
+              <label>
+                <span>Giving Category</span>
+                <select>
+                  <option>Tithe</option>
+                  <option>Seed Offering</option>
+                  <option>Mission Support</option>
+                  <option>Conference Fund</option>
+                </select>
+              </label>
+              <label>
+                <span>Amount</span>
+                <input type="number" placeholder="50">
+              </label>
+              <div class="radio-row">
+                <label><input type="radio" name="frequency" checked> One Time</label>
+                <label><input type="radio" name="frequency"> Monthly</label>
+              </div>
+              <label class="checkbox-label"><input type="checkbox"> I am eligible for UK Gift Aid</label>
+              <button type="button" class="btn btn-primary wide-btn">Continue to Secure Giving</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="events">
+        <div class="container">
+          <div class="section-heading center-heading">
+            <span class="eyebrow">Events & registrations</span>
+            <h2 class="section-title">An events system ready for <em>conferences, crusades, and branch gatherings</em></h2>
+            <p class="section-text narrow-text">The redesigned website supports event pages, RSVP forms, reminder-ready registration, and branch-specific calendars.</p>
+          </div>
+          <div class="card-grid three-grid event-grid">
+            <article class="event-card">
+              <span class="event-date">18 MAY</span>
+              <h3>Sunday Worship Encounter</h3>
+              <p>London HQ • Worship, word, healing, and fellowship.</p>
+              <a href="#visit">Reserve your visit</a>
+            </article>
+            <article class="event-card">
+              <span class="event-date">24 MAY</span>
+              <h3>Night of Fire</h3>
+              <p>Prayer vigil with worship, prophecy, intercession, and revival emphasis.</p>
+              <a href="#prayer">Request prayer support</a>
+            </article>
+            <article class="event-card">
+              <span class="event-date">31 MAY</span>
+              <h3>WOCOM Conference Gathering</h3>
+              <p>Conference registration, speaker profiles, and media updates in one place.</p>
+              <a href="#contact">Request conference details</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section media-section" id="media">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Media gallery</span>
+            <h2 class="section-title">Tell the story of the ministry through <em>photos, videos, sermons, and livestreams</em></h2>
+            <p class="section-text">The gallery layout below keeps WOCOM’s existing images while making more room for worship atmosphere, church life, events, and broadcast media.</p>
+          </div>
+          <div class="media-grid">
+            <article class="media-card tall">
+              <img src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/WOCOM/Home%20Page/1_10_.jpg" alt="WOCOM media card">
+              <div class="media-overlay"><span>Photo Album</span><h3>Sunday Worship</h3></div>
+            </article>
+            <article class="media-card">
+              <img src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/WOCOM/Home%20Page/12_1__w1000_h500.jpg" alt="WOCOM conference moment">
+              <div class="media-overlay"><span>Conference</span><h3>Special Gatherings</h3></div>
+            </article>
+            <article class="media-card">
+              <img src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/New%20Slides/Design_1_7_.jpeg" alt="WOCOM worship slide image">
+              <div class="media-overlay"><span>Livestream</span><h3>Broadcast & TV</h3></div>
+            </article>
+            <article class="media-card wide">
+              <img src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/New%20Slides/Design_1_12_.jpeg" alt="WOCOM sermon library image">
+              <div class="media-overlay"><span>Sermon Library</span><h3>Messages that build faith and strengthen discipleship</h3></div>
+            </article>
+            <article class="media-card">
+              <img src="https://sspark.genspark.ai/cfimages?u1=uU12OoTyluPN1KrchWGVl3rbz%2Bdo4MlTd6kVyoHtaSVIqYaDqZGrstRldONB1FxEAq5npS3G7%2B7BCC1IwP06KF1IM6OxOi%2FynafPdlY8PZ4FGYg97ML9bEiqetEWfZ7BrIw4wPHTJpzw4NRWgdOZV1eb%2FvBIYpohyBQOrTf8g%2FDwKCFOO1dUZx8Ccu3BPT%2FU3TjqVYC84IYjze05SyK9KlB2czLik%2BlV%2FEtbwa0Zu9hadrLPuvjHkDwAkytmMSjaImSPhH4a9jLTyNccqP%2B6jwMzeeRNDvcI4BXylnJ87gKryWKuW7UnrZx8IlrPLJacBCkGf%2BVxiGArtRAZLZAn3y9CfqEsHMVVhpKgwf7xJ0o%2BvlEc8zXOeHYiD8txMjvpKeskmqCujcA%2FaRd5rplMQE9%2FCtFR32uW0Iu5cEnrJY3%2FGxZM%2Fj5UrCYsTHijiOlZT%2FSbWqoEiCLuAUlMw1I%3D&u2=9HgIAheG%2FeIZGaZN&width=2560'" alt="Christian worship congregation">
+              <div class="media-overlay"><span>Worship</span><h3>Congregational Praise</h3></div>
+            </article>
+            <article class="media-card">
+              <img src="https://sspark.genspark.ai/cfimages?u1=bQ5DacJxww9u%2BrC%2BbTJFDx7xxGV58mxoqBriZyQTNS9Bi4lcxyTxEHkEAuZXMNHelnJ4tJ3h71UGRnyshNMsy0BwxCnnYxkfse6Q4xxZTbrbILceQtxWId306zU44UG42V5Wa6BvWV6yGNWZAwnDtTFlq0sa%2BVCGFCy2Nuiopw%3D%3D&u2=uLz3%2BGDsfkoSHisO&width=2560'" alt="Youth worship service">
+              <div class="media-overlay"><span>Youth</span><h3>Next Generation Worship</h3></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-section" id="prayer">
+        <div class="container split-layout prayer-layout">
+          <div class="content-panel">
+            <span class="eyebrow">Prayer wall & data capture</span>
+            <h2 class="section-title">Forms that help every visitor <em>connect, respond, and be followed up</em></h2>
+            <p class="section-text">This layout includes dedicated forms for new visitors, prayer requests, salvation decisions, and volunteer interest — all ready to connect to your preferred CRM or email workflow.</p>
+            <div class="feature-grid">
+              <article class="feature-box"><h3>Visitor Welcome Form</h3><p>Collect first-time guest details for pastoral follow-up.</p></article>
+              <article class="feature-box"><h3>Prayer Request Form</h3><p>Support private or public intercession submissions.</p></article>
+              <article class="feature-box"><h3>Salvation Decision</h3><p>Create a clear next-step journey for new believers.</p></article>
+              <article class="feature-box"><h3>Volunteer Signup</h3><p>Match willing members to ministry opportunities quickly.</p></article>
+            </div>
+          </div>
+          <div class="form-panel">
+            <h3>Prayer Request</h3>
+            <form class="styled-form">
+              <label>
+                <span>Full Name</span>
+                <input type="text" placeholder="Your name">
+              </label>
+              <label>
+                <span>Email Address</span>
+                <input type="email" placeholder="you@example.com">
+              </label>
+              <label>
+                <span>Prayer Need</span>
+                <textarea rows="5" placeholder="Share your request here"></textarea>
+              </label>
+              <div class="radio-row stack-on-mobile">
+                <label><input type="radio" name="privacy" checked> Keep private</label>
+                <label><input type="radio" name="privacy"> Share on prayer wall</label>
+              </div>
+              <button type="button" class="btn btn-primary wide-btn">Send Prayer Request</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="visit">
+        <div class="container visit-panel">
+          <div>
+            <span class="eyebrow">Plan your visit</span>
+            <h2 class="section-title">Help first-time guests know exactly <em>where to go and what to expect</em></h2>
+            <p class="section-text">The redesigned homepage includes welcoming next-step actions so new visitors can ask questions, get service details, and feel at home before they arrive.</p>
+          </div>
+          <div class="visit-actions">
+            <a class="btn btn-primary" href="#contact">Contact the Church</a>
+            <a class="btn btn-outline" href="#events">View Events</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section newsletter-section" id="newsletter">
+        <div class="container newsletter-wrap glass-light">
+          <div>
+            <span class="eyebrow">Newsletter & communications</span>
+            <h2 class="section-title">Grow your mailing list with <em>beautiful, automated follow-up</em></h2>
+            <p class="section-text">A newsletter section supports Mailchimp integration, welcome sequences, segmented mailing lists, and monthly updates for members and visitors.</p>
+          </div>
+          <form class="newsletter-form">
+            <input type="text" placeholder="Your name">
+            <input type="email" placeholder="Email address">
+            <button type="button" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section branch-section" id="contact">
+        <div class="container">
+          <div class="section-heading center-heading">
+            <span class="eyebrow">Branches & contact</span>
+            <h2 class="section-title">Show every location with <em>clarity and confidence</em></h2>
+            <p class="section-text narrow-text">Each branch can have its own mini profile, contact route, event list, and ministry pages while keeping the international network visible.</p>
+          </div>
+          <div class="card-grid four-grid">
+            <article class="branch-card">
+              <span class="branch-flag">🇬🇧</span>
+              <h3>London, UK</h3>
+              <p>WOCOM World International Church • Headquarters</p>
+              <a href="https://wocomworld.org.uk" target="_blank" rel="noopener">wocomworld.org.uk</a>
+            </article>
+            <article class="branch-card">
+              <span class="branch-flag">🇳🇬</span>
+              <h3>Kano, Nigeria</h3>
+              <p>Word Communication Ministries • Branch fellowship and outreach.</p>
+              <a href="#contact">Request branch details</a>
+            </article>
+            <article class="branch-card">
+              <span class="branch-flag">🇳🇬</span>
+              <h3>Port Harcourt, Nigeria</h3>
+              <p>Regional church life, gatherings, and ministry support.</p>
+              <a href="#contact">Request branch details</a>
+            </article>
+            <article class="branch-card">
+              <span class="branch-flag">🌍</span>
+              <h3>International Network</h3>
+              <p>Affiliate churches across Europe, Africa, and North America.</p>
+              <a href="#newsletter">Stay connected</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="https://igunle5009.blob.core.windows.net/igunlestorage/wocomworld/WOCOM/WOCOM_Logo4.png" alt="WOCOM World logo">
+            <div>
+              <strong>WOCOM World</strong>
+              <span>Word Communication Ministries UK</span>
+            </div>
+          </div>
+          <p class="footer-copy">A global church family committed to proclaiming the Gospel, making disciples, and building the Kingdom of God across the nations.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#ministries">Ministries</a>
+          <a href="#giving">Giving</a>
+          <a href="#events">Events</a>
+          <a href="#media">Media</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>&copy; <span id="year"></span> WOCOM World. All rights reserved.</span>
+        <span>Designed for mobile, tablet, and desktop worship experiences.</span>
+      </div>
+    </footer>
   </div>
-</header>
 
-<main id="top">
-  <section class="hero">
-    <div class="hero-shell">
-      <div class="hero-stage">
-        <article class="hero-slide active">
-          <div class="hero-media" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80&fit=crop')"></div>
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <span class="eyebrow" style="color:#f4d98c">Welcome to WOCOM World</span>
-              <h1 class="hero-title">Rooted in Christ, <em>Reaching the Nations</em></h1>
-              <p class="hero-text">A fresh landing-page concept for Word Communication Ministries UK, designed with more white space, elegant storytelling, clearer ministry pathways, and a stronger visual presentation of worship, media, and church life.</p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="#about">Discover WOCOM</a>
-                <a class="btn btn-secondary" href="#media">Explore Media Gallery</a>
-              </div>
-            </div>
-            <aside class="hero-side glass">
-              <div class="live-pill">This week at WOCOM</div>
-              <h3>Come as you are. Leave transformed.</h3>
-              <p>Beautifully layered image-and-text hero slides highlight the ministry story while keeping the gold, navy, and classic WOCOM identity intact.</p>
-              <div class="meta-list">
-                <div class="meta-item">
-                  <div>⛪</div>
-                  <div><strong>Sunday Celebration</strong><span>Sundays | 10:00 AM BST · 11:00 AM WAT</span></div>
-                </div>
-                <div class="meta-item">
-                  <div>▶</div>
-                  <div><strong>Watch & Listen</strong><span>Live worship, sermons, crusades, and conference highlights</span></div>
-                </div>
-                <div class="meta-item">
-                  <div>🌍</div>
-                  <div><strong>Global Reach</strong><span>United Kingdom, Nigeria, and international affiliate churches</span></div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </article>
-
-        <article class="hero-slide">
-          <div class="hero-media" style="background-image:url('https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1600&q=80&fit=crop')"></div>
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <span class="eyebrow" style="color:#f4d98c">Worship & Community</span>
-              <h2 class="hero-title">A brighter, calmer <em>first impression</em></h2>
-              <p class="hero-text">The redesign shifts the experience from heavy dark coverage to a premium balance of white surfaces, soft cream sections, and focused navy moments for stronger readability and modern church-brand appeal.</p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="#services">View Services</a>
-                <a class="btn btn-secondary" href="#branches">Find a Branch</a>
-              </div>
-            </div>
-            <aside class="hero-side glass">
-              <div class="live-pill">Design refresh</div>
-              <h3>Elegant whitespace meets ministry warmth.</h3>
-              <p>Rounded cards, cleaner hierarchy, softer shadows, and more visual breathing room make the homepage feel welcoming, premium, and easier to navigate.</p>
-              <div class="meta-list">
-                <div class="meta-item">
-                  <div>✦</div>
-                  <div><strong>Cleaner navigation</strong><span>Fewer distractions and faster access to key actions</span></div>
-                </div>
-                <div class="meta-item">
-                  <div>🖼</div>
-                  <div><strong>Real gallery concepts</strong><span>Photo, video, sermon, and crusade imagery instead of placeholders</span></div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </article>
-
-        <article class="hero-slide">
-          <div class="hero-media" style="background-image:url('https://images.unsplash.com/photo-1520681979053-578c14d50e63?w=1600&q=80&fit=crop')"></div>
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <span class="eyebrow" style="color:#f4d98c">Media & Events</span>
-              <h2 class="hero-title">Showcase the move of God through <em>image, video, and story</em></h2>
-              <p class="hero-text">This concept uses a strong visual media section to better communicate conferences, worship moments, crusades, baptism services, and the breadth of WOCOM ministry across nations.</p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="#media">See Media Concepts</a>
-                <a class="btn btn-secondary" href="#connect">Contact WOCOM</a>
-              </div>
-            </div>
-            <aside class="hero-side glass">
-              <div class="live-pill">Brand continuity</div>
-              <h3>Colours, contact details, and branches remain preserved.</h3>
-              <p>The redesign keeps the recognizable WOCOM palette and branch information while presenting them in a cleaner, more trust-building layout.</p>
-              <div class="meta-list">
-                <div class="meta-item">
-                  <div>✉</div>
-                  <div><strong>Retained contact details</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f060109002f18000c000218001d030b41001d08411a04">[email&#160;protected]</a> and all branch contact points remain visible</span></div>
-                </div>
-                <div class="meta-item">
-                  <div>📍</div>
-                  <div><strong>Retained branch network</strong><span>London HQ, Kano, Port Harcourt, and International Network</span></div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </article>
-
-        <div class="hero-controls">
-          <div class="hero-dots">
-            <button class="hero-dot active" onclick="goToSlide(0)" aria-label="Hero slide 1"></button>
-            <button class="hero-dot" onclick="goToSlide(1)" aria-label="Hero slide 2"></button>
-            <button class="hero-dot" onclick="goToSlide(2)" aria-label="Hero slide 3"></button>
-          </div>
-          <div class="arrow-group">
-            <button class="arrow-btn" onclick="changeSlide(-1)" aria-label="Previous slide">←</button>
-            <button class="arrow-btn" onclick="changeSlide(1)" aria-label="Next slide">→</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-strip">
-        <div class="strip-card glass"><strong>Brand feel</strong><span>More white space, premium typography, softer contrast, clearer content hierarchy.</span></div>
-        <div class="strip-card glass"><strong>Slider</strong><span>Beautiful image-and-text rotating hero to tell the WOCOM story at first glance.</span></div>
-        <div class="strip-card glass"><strong>Media concept</strong><span>Real gallery visuals for worship, sermon moments, live broadcast, and crusade highlights.</span></div>
-        <div class="strip-card glass"><strong>Trust signals</strong><span>Branch cards, ministry overview, service times, and direct contact routes are all surfaced.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container about-wrap">
-      <div class="about-card">
-        <div class="about-visual">
-          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1400&q=80&fit=crop" alt="Worship atmosphere concept image">
-          <div class="about-badge glass">
-            <strong>30+</strong>
-            <span>Years of ministry influence presented with a cleaner, more editorial visual style.</span>
-          </div>
-        </div>
-      </div>
-      <div class="about-content">
-        <span class="eyebrow">About WOCOM World</span>
-        <h2 class="section-title">Word Communication Ministries UK with a <em>lighter, more inviting</em> homepage</h2>
-        <p class="section-sub">This landing-page redesign keeps the spirit-filled identity of WOCOM World while moving the visual experience toward a contemporary ministry aesthetic: elegant serif headlines, stronger readability, welcoming whitespace, curated imagery, and more intentional calls to action.</p>
-        <div class="quote">“Proclaiming the Gospel with signs following — to every nation, every tongue, every generation.”</div>
-        <p class="section-sub">The structure still reflects the same mission: Sunday worship, apostolic preaching, healing crusades, media ministry, and a growing international branch network. The difference is in how quickly a visitor can understand the ministry and take action.</p>
-        <div class="pillars">
-          <div class="pillar"><h4>The Word</h4><p>Stronger storytelling panels help visitors quickly understand the teaching-centered DNA of the ministry.</p></div>
-          <div class="pillar"><h4>The Spirit</h4><p>Visuals and layered sections better communicate worship, prayer, revival, and supernatural expectation.</p></div>
-          <div class="pillar"><h4>The Mission</h4><p>Media, events, and branch presence are presented as signs of a living global ministry movement.</p></div>
-          <div class="pillar"><h4>The Family</h4><p>Clear connection points make it easier for newcomers, volunteers, and online viewers to engage.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Gather with us</span>
-        <h2 class="section-title">Service information in a more <em>scannable format</em></h2>
-        <p class="section-sub">Key weekly touchpoints are retained, but displayed as clear cards so first-time visitors can find the right gathering quickly.</p>
-      </div>
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-icon">🙏</div>
-          <h3>Sunday Celebration</h3>
-          <p>Powerful worship, apostolic preaching, and a strong sense of church family gathered in one uplifting weekly experience.</p>
-          <p class="service-time">Sundays | 10:00 AM BST · 11:00 AM WAT</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon">📖</div>
-          <h3>Bible Study & Prayer</h3>
-          <p>Midweek teaching and intercession framed as a clear discipleship path for believers seeking depth and growth.</p>
-          <p class="service-time">Wednesdays | 7:00 PM BST</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon">🔥</div>
-          <h3>Night of Fire</h3>
-          <p>Monthly prayer emphasis presented with more atmosphere and visual importance for revival-focused audiences.</p>
-          <p class="service-time">Last Friday Monthly | 10:00 PM – 4:00 AM</p>
-        </article>
-        <article class="service-card">
-          <div class="service-icon">👶</div>
-          <h3>Children's Church</h3>
-          <p>A dedicated family-friendly card helps parents understand that children are welcomed into a safe ministry space.</p>
-          <p class="service-time">Sundays | During Main Service</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="media">
-    <div class="container media-showcase">
-      <div class="media-top">
-        <div class="section-head" style="margin-bottom:0">
-          <span class="eyebrow">Media gallery concept</span>
-          <h2 class="section-title">Actual imagery to communicate <em>worship, sermons, and impact</em></h2>
-          <p class="section-sub">Instead of abstract placeholders, this redesign introduces image-led gallery cards that help visitors immediately understand the type of content WOCOM World shares.</p>
-        </div>
-        <div class="media-tags">
-          <span>Photo albums</span>
-          <span>Conference highlights</span>
-          <span>Live stream</span>
-          <span>Sermon archive</span>
-          <span>Crusades</span>
-        </div>
-      </div>
-
-      <div class="gallery-grid">
-        <article class="gallery-card tall">
-          <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?w=1200&q=80&fit=crop" alt="Church worship crowd concept image">
-          <div class="gallery-copy">
-            <span class="tag">Photo Album</span>
-            <h3>Sunday Worship</h3>
-            <p>Large-format lead card for main church moments, altar calls, and congregation atmosphere.</p>
-          </div>
-        </article>
-        <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1200&q=80&fit=crop" alt="Media production camera concept image">
-          <div class="gallery-copy">
-            <span class="tag">Video</span>
-            <h3>Broadcast & Media</h3>
-            <p>Concept visuals for livestreaming, editing, and sermon publishing.</p>
-          </div>
-        </article>
-        <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80&fit=crop" alt="Conference worship concept image">
-          <div class="gallery-copy">
-            <span class="tag">Event</span>
-            <h3>Conference Highlights</h3>
-            <p>Best used for conferences, special nights, and worship gatherings.</p>
-          </div>
-        </article>
-        <article class="gallery-card wide">
-          <img src="https://images.unsplash.com/photo-1520681979053-578c14d50e63?w=1400&q=80&fit=crop" alt="Preaching and ministry concept image">
-          <div class="gallery-copy">
-            <span class="tag">Sermon Archive</span>
-            <h3>Messages that build faith</h3>
-            <p>A wide card format works well for latest messages, featured series, or apostolic teaching collections.</p>
-          </div>
-        </article>
-        <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=1200&q=80&fit=crop" alt="Community and outreach concept image">
-          <div class="gallery-copy">
-            <span class="tag">Outreach</span>
-            <h3>Mission in Motion</h3>
-            <p>Show crusades, outreach events, testimonies, and service to communities.</p>
-          </div>
-        </article>
-        <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80&fit=crop" alt="Prayer and worship concept image">
-          <div class="gallery-copy">
-            <span class="tag">Live</span>
-            <h3>Prayer & Presence</h3>
-            <p>Supports all-night prayer, worship sessions, and revival storytelling.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="impact">
-    <div class="impact-grid">
-      <div class="impact-card"><strong>4</strong><span>Clear ministry zones on the homepage: story, services, media, and connection.</span></div>
-      <div class="impact-card"><strong>3</strong><span>Hero slides combining imagery with focused messaging and direct action buttons.</span></div>
-      <div class="impact-card"><strong>100%</strong><span>WOCOM gold, navy, core messaging, branch details, and contacts preserved in the redesign.</span></div>
-      <div class="impact-card"><strong>More White</strong><span>Cleaner surfaces and softer section breaks create a more premium and welcoming user experience.</span></div>
-    </div>
-  </section>
-
-  <section class="branches" id="branches">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Our branches</span>
-        <h2 class="section-title">Branch details retained with <em>clearer visibility</em></h2>
-        <p class="section-sub">Every branch and contact touchpoint remains intact, but is now displayed in a cleaner card system that feels easier to trust and easier to scan.</p>
-      </div>
-      <div class="branch-grid">
-        <article class="branch-card">
-          <div class="branch-flag">🇬🇧</div>
-          <h3>London, UK <small>(HQ)</small></h3>
-          <p>WOCOM World International Church</p>
-          <p>United Kingdom</p>
-          <a href="/cdn-cgi/l/email-protection#a2cbccc4cde2d5cdc1cdcfd5cdd0cec68ccdd0c58cd7c9"><span class="__cf_email__" data-cfemail="355c5b535a75425a565a58425a4759511b5a47521b405e">[email&#160;protected]</span></a><br>
-          <a href="tel:+442000000000">+44 (0)20 0000 0000</a>
-        </article>
-        <article class="branch-card">
-          <div class="branch-flag">🇳🇬</div>
-          <h3>Kano, Nigeria</h3>
-          <p>Word Communication Ministries</p>
-          <p>Kano State, Nigeria</p>
-          <a href="/cdn-cgi/l/email-protection#a3c8c2cdcce3d4ccc0ccced4ccd1cfc78dccd1c48dd6c8"><span class="__cf_email__" data-cfemail="d4bfb5babb94a3bbb7bbb9a3bba6b8b0fabba6b3faa1bf">[email&#160;protected]</span></a>
-        </article>
-        <article class="branch-card">
-          <div class="branch-flag">🇳🇬</div>
-          <h3>Port Harcourt, Nigeria</h3>
-          <p>Word Communication Ministries</p>
-          <p>Rivers State, Nigeria</p>
-          <a href="/cdn-cgi/l/email-protection#e2928d90968a8390818d979096a2958d818d8f958d908e86cc8d9085cc9789"><span class="__cf_email__" data-cfemail="5a2a321a2d353935372d3528363e7435283d742f31">[email&#160;protected]</span></a>
-        </article>
-        <article class="branch-card">
-          <div class="branch-flag">🌍</div>
-          <h3>International Network</h3>
-          <p>WOCOM World Affiliate Churches</p>
-          <p>Europe • Africa • North America</p>
-          <a href="/cdn-cgi/l/email-protection#50373c3f32313c10273f333f3d273f223c347e3f22377e253b"><span class="__cf_email__" data-cfemail="b6d1dad9d4d7daf6c1d9d5d9dbc1d9c4dad298d9c4d198c3dd">[email&#160;protected]</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="connect" id="connect">
-    <div class="connect-wrap">
-      <div>
-        <span class="eyebrow" style="color:#f4d98c">Connect with WOCOM</span>
-        <h2 class="section-title">Contact information remains prominent and <em>easier to act on</em></h2>
-        <p class="section-sub">The final section turns contact and connection into a stronger conversion area for first-time visitors, media viewers, and people seeking prayer or pastoral support.</p>
-        <div class="contact-list">
-          <div class="contact-item">
-            <strong>Main email</strong>
-            <a href="/cdn-cgi/l/email-protection#cda4a3aba28dbaa2aea2a0baa2bfa1a9e3a2bfaae3b8a6"><span class="__cf_email__" data-cfemail="462f28202906312925292b3129342a226829342168332d">[email&#160;protected]</span></a>
-          </div>
-          <div class="contact-item">
-            <strong>Phone</strong>
-            <a href="tel:+442000000000">+44 (0)20 0000 0000</a>
-          </div>
-          <div class="contact-item">
-            <strong>Website</strong>
-            <a href="https://wocomworld.org.uk" target="_blank" rel="noopener">wocomworld.org.uk</a>
-          </div>
-        </div>
-      </div>
-      <aside class="connect-card glass">
-        <h3>Next-step actions</h3>
-        <p>This landing concept makes key visitor actions more obvious, while still feeling aligned to a Spirit-filled ministry brand.</p>
-        <div class="quick-actions">
-          <a href="/cdn-cgi/l/email-protection#95fcfbf3fad5e2faf6faf8e2fae7f9f1bbfae7f2bbe0fe"><strong>I'm New Here</strong><span>Invite first-time visitors to reach out and receive location or service details.</span></a>
-          <a href="/cdn-cgi/l/email-protection#c6afa8a0a986b1a9a5a9abb1a9b4aaa2e8a9b4a1e8b3ad"><strong>I Need Prayer</strong><span>Create a warm and immediate route for prayer requests and pastoral care.</span></a>
-          <a href="/cdn-cgi/l/email-protection#5f363139301f28303c303228302d333b71302d38712a34"><strong>Volunteer</strong><span>Highlight serving opportunities in worship, media, ushering, and outreach.</span></a>
-          <a href="https://wocomworld.org.uk" target="_blank" rel="noopener"><strong>Watch & Explore</strong><span>Bridge the landing page with the wider WOCOM digital presence.</span></a>
-        </div>
-      </aside>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="footer-shell">
-    <div>
-      <strong>WOCOM World</strong>
-      <p style="margin-top:8px;max-width:620px;line-height:1.8">Word Communication Ministries UK — a global church family committed to proclaiming the Gospel, making disciples, and building the Kingdom of God across the nations.</p>
-    </div>
-    <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#media">Media</a>
-      <a href="#branches">Branches</a>
-      <a href="#connect">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.hero-dot');
-let currentSlide = 0;
-let autoPlay = null;
-
-function goToSlide(index){
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = (index + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-}
-
-function changeSlide(step){
-  goToSlide(currentSlide + step);
-  resetAutoplay();
-}
-
-function resetAutoplay(){
-  clearInterval(autoPlay);
-  autoPlay = setInterval(() => goToSlide(currentSlide + 1), 6500);
-}
-
-function toggleNav(){
-  document.getElementById('navLinks').classList.toggle('open');
-}
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
-resetAutoplay();
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>
